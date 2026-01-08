@@ -1,0 +1,66 @@
+Avance del proyecto
+mainwindow.h
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QLabel>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QDoubleSpinBox>
+#include <QPushButton>
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class MainWindow;
+}
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+    void on_lblTitulo_linkActivated(const QString &link);
+
+    void on_txtUsuario_cursorPositionChanged(int arg1, int arg2);
+    void on_txtClave_cursorPositionChanged(int arg1, int arg2);
+
+    void on_btnLogin_clicked();
+
+    void on_txtProducto_cursorPositionChanged(int arg1, int arg2);
+    void on_cmbCategoria_activated(int index);
+    void on_spPrecio_textChanged(const QString &arg1);
+    void on_spStock_textChanged(const QString &arg1);
+
+    void on_pushButton_clicked();     // Agregar
+    void on_pushButton_2_clicked();   // Actualizar
+    void on_pushButton_3_clicked();   // Eliminar
+    void on_pushButton_4_clicked();   // Buscar
+    void on_pushButton_5_clicked();   // Limpiar
+
+private:
+    QLineEdit *txtUsuario;
+    QLineEdit *txtClave;
+    QLineEdit *txtProducto;
+    QComboBox * cmbCategoria;
+    QDoubleSpinBox * spPrecio;
+    QSpinBox * spStock;
+
+    QPushButton *btnCrear;
+    QPushButton *btnBuscar;
+    QPushButton *btnActualizar;
+    QPushButton *btnEliminar;
+    QPushButton *btnMostrar;
+    QTabWidget *tblProductos;
+    QPushButton *btnGuardar;
+    
+
+
+    Ui::MainWindow *ui;
+};
+#endif 
